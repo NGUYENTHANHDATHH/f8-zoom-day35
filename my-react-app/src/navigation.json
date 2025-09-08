@@ -1,0 +1,34 @@
+[
+    {
+        "to": "/",
+        "title": "Home"
+    },
+    {
+        "to": "/counter",
+        "title": "Counter"
+    },
+    {
+        "to": "/todos",
+        "title": "Todos"
+    },
+    {
+        "to": "/profile",
+        "title": "Profile"
+    },
+    {
+        "to": "/products",
+        "title": "Products"
+    },
+    {
+        "to": "/comments",
+        "title": "Comments"
+    },
+    {
+        "to": "/weather",
+        "title": "Weather"
+    },
+    {
+        "to": "/buttons",
+        "title": "Buttons"
+    }
+]

@@ -1,0 +1,58 @@
+.wrapper {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.primary {
+    color: #fff;
+    background: #a423a4;
+}
+
+.rounded {
+    border-radius: 999px;
+}
+
+.bordered {
+    color: #a423a4;
+    border-color: currentColor;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+// Loading icon styles
+.loadingIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+button:hover {
+    background: #8e1f8e;
+    cursor: pointer;
+}
+
+// Sizes
+.small {
+    padding: 2px 12px;
+    font-size: 1.4rem;
+}
+
+.medium {
+    padding: 4px 16px;
+}
+
+.large {
+    padding: 6px 20px;
+    font-size: 1.8rem;
+}
