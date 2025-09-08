@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { HashRouter, Routes, Route } from 'react-router';
 import Home from "../../pages/Home";
 import Counter from "../../pages/Counter";
 import Todos from "../../pages/Todos";
@@ -10,7 +10,7 @@ import Weather from "../../pages/Weather";
 import Buttons from "../../pages/Buttons";
 function Navigation() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/counter" element={<Counter />}></Route>
@@ -21,7 +21,7 @@ function Navigation() {
                 <Route path="/weather" element={<Weather />}></Route>
                 <Route path="/buttons" element={<Buttons />}></Route>
             </Routes>
-        </BrowserRouter >
+        </HashRouter >
     )
         ;
 }
