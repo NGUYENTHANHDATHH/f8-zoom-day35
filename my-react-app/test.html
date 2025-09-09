@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King of Diamonds Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        .scale-tilt {
+            transform: rotate(5deg);
+        }
+
+        .acid-overflow {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .acid-overflow::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: linear-gradient(to bottom, rgba(0, 255, 255, 0.3), rgba(0, 200, 200, 0.7));
+            transition: height 0.5s ease;
+        }
+
+        .acid-overflow.overflowing::after {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="flex flex-col items-center mb-8">
+            <div class="relative">
+                <h1 class="text-4xl md:text-6xl font-bold text-center mb-2 text-yellow-400">KING OF DIAMONDS</h1>
+                <div
+                    class="absolute -top-4 -right-4 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                    5</div>
+            </div>
+            <p class="text-lg text-gray-300">The Ultimate Psychological Number Game</p>
+        </header>
+
+        <!-- Game Area -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Players Section -->
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-yellow-300 border-b border-yellow-300 pb-2">Players</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Player 1 (King) -->
+                        <div class="bg-gray-700 rounded-lg p-4 relative overflow-hidden border-2 border-yellow-400">
+                            <div
+                                class="absolute top-2 right-2 bg-yellow-400 text-gray-900 px-2 py-1 rounded text-xs font-bold">
+                                KING</div>
+                            <div class="flex items-center mb-2">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-gray-900 font-bold mr-3">
+                                    K</div>
+                                <h3 class="font-bold">Player 1</h3>
+                            </div>
+                            <div class="acid-overflow h-2 bg-gray-600 rounded-full mb-2">
+                                <div class="h-full bg-green-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                            <div class="text-sm text-gray-300">Score: 8</div>
+                            <div class="mt-2 text-xs text-gray-400">Last choice: 42</div>
+                        </div>
+
+                        <!-- Player 2 -->
+                        <div class="bg-gray-700 rounded-lg p-4 relative overflow-hidden">
+                            <div class="flex items-center mb-2">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white font-bold mr-3">
+                                    2</div>
+                                <h3 class="font-bold">Player 2</h3>
+                            </div>
+                            <div class="acid-overflow h-2 bg-gray-600 rounded-full mb-2">
+                                <div class="h-full bg-green-500 rounded-full" style="width: 60%"></div>
+                            </div>
+                            <div class="text-sm text-gray-300">Score: 6</div>
+                            <div class="mt-2 text-xs text-gray-400">Last choice: 35</div>
+                        </div>
+
+                        <!-- Player 3 -->
+                        <div class="bg-gray-700 rounded-lg p-4 relative overflow-hidden">
+                            <div class="flex items-center mb-2">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold mr-3">
+                                    3</div>
+                                <h3 class="font-bold">Player 3</h3>
+                            </div>
+                            <div class="acid-overflow h-2 bg-gray-600 rounded-full mb-2">
+                                <div class="h-full bg-green-500 rounded-full" style="width: 40%"></div>
+                            </div>
+                            <div class="text-sm text-gray-300">Score: 4</div>
+                            <div class="mt-2 text-xs text-gray-400">Last choice: 28</div>
+                        </div>
+
+                        <!-- Player 4 -->
+                        <div class="bg-gray-700 rounded-lg p-4 relative overflow-hidden">
+                            <div class="flex items-center mb-2">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-3">
+                                    4</div>
+                                <h3 class="font-bold">Player 4</h3>
+                            </div>
+                            <div class="acid-overflow h-2 bg-gray-600 rounded-full mb-2">
+                                <div class="h-full bg-green-500 rounded-full" style="width: 20%"></div>
+                            </div>
+                            <div class="text-sm text-gray-300">Score: 2</div>
+                            <div class="mt-2 text-xs text-gray-400">Last choice: 19</div>
+                        </div>
+
+                        <!-- Player 5 -->
+                        <div class="bg-gray-700 rounded-lg p-4 relative overflow-hidden">
+                            <div class="flex items-center mb-2">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white font-bold mr-3">
+                                    5</div>
+                                <h3 class="font-bold">Player 5</h3>
+                            </div>
+                            <div class="acid-overflow h-2 bg-gray-600 rounded-full mb-2">
+                                <div class="h-full bg-green-500 rounded-full" style="width: 10%"></div>
+                            </div>
+                            <div class="text-sm text-gray-300">Score: 1</div>
+                            <div class="mt-2 text-xs text-gray-400">Last choice: 15</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Controls -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-yellow-300 border-b border-yellow-300 pb-2">Game Controls
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-2">Current Round: <span class="text-yellow-400">3</span>
+                            </h3>
+                            <div class="flex items-center mb-4">
+                                <div class="w-full bg-gray-700 rounded-full h-4">
+                                    <div class="bg-yellow-500 h-4 rounded-full pulse-animation" style="width: 45%">
+                                    </div>
+                                </div>
+                                <span class="ml-2 text-sm">27s remaining</span>
+                            </div>
+                            <div class="bg-gray-700 p-3 rounded-lg mb-4">
+                                <h4 class="font-semibold text-yellow-300 mb-1">Active Rules:</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Base rules apply</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Duplicate numbers become invalid</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-4">
+                                <label for="numberInput" class="block text-sm font-medium mb-1">Your Number
+                                    (0-100)</label>
+                                <div class="flex">
+                                    <input type="number" id="numberInput" min="0" max="100"
+                                        class="flex-1 bg-gray-700 border border-gray-600 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                                    <button
+                                        class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold px-4 py-2 rounded-r-lg transition">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="bg-gray-700 p-3 rounded-lg">
+                                <h4 class="font-semibold text-yellow-300 mb-1">Next Rule at:</h4>
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white font-bold mr-2">
+                                        2</div>
+                                    <span class="text-sm">players remaining</span>
+                                </div>
+                                <p class="text-xs mt-2 text-gray-400">Choosing exact number makes others lose 2 points
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rules and Info Section -->
+            <div class="space-y-6">
+                <!-- Game Rules -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-yellow-300 border-b border-yellow-300 pb-2">Game Rules</h2>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-gray-700 rounded-lg">
+                            <h3 class="font-semibold text-yellow-400">Basic Rules</h3>
+                            <p class="text-sm mt-1">Choose a number 0-100. The average is multiplied by 0.8. Closest
+                                number wins, others lose 1 point.</p>
+                        </div>
+                        <div class="p-3 bg-gray-700 rounded-lg">
+                            <h3 class="font-semibold text-yellow-400">Rule 1 (Active)</h3>
+                            <p class="text-sm mt-1">Duplicate numbers become invalid (both players lose points).</p>
+                        </div>
+                        <div class="p-3 bg-gray-700 rounded-lg opacity-70">
+                            <h3 class="font-semibold text-yellow-400">Rule 2 (2 players)</h3>
+                            <p class="text-sm mt-1">Exact correct number makes others lose 2 points.</p>
+                        </div>
+                        <div class="p-3 bg-gray-700 rounded-lg opacity-50">
+                            <h3 class="font-semibold text-yellow-400">Rule 3 (2 players)</h3>
+                            <p class="text-sm mt-1">Choosing 0 loses to 100 (instant win).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Stats -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-yellow-300 border-b border-yellow-300 pb-2">Game Statistics
+                    </h2>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Round 1 Average</span>
+                                <span class="font-bold">32.4 (×0.8 = 25.9)</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 32%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Round 2 Average</span>
+                                <span class="font-bold">28.6 (×0.8 = 22.9)</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 29%"></div>
+                            </div>
+                        </div>
+                        <div class="pt-2 border-t border-gray-700">
+                            <div class="flex justify-between">
+                                <span class="text-sm">Elimination at:</span>
+                                <span class="font-bold text-red-500">-10 points</span>
+                            </div>
+                            <div class="mt-2 flex justify-center">
+                                <div class="scale-tilt bg-red-900 text-red-300 p-2 rounded-lg text-center">
+                                    <i class="fas fa-skull-crossbones text-xl"></i>
+                                    <p class="text-xs mt-1">AQUA REGIA POURS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-yellow-300 border-b border-yellow-300 pb-2">Round History
+                    </h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left text-yellow-400">
+                                    <th class="pb-2">Round</th>
+                                    <th class="pb-2">Winner</th>
+                                    <th class="pb-2">Avg×0.8</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-700">
+                                    <td class="py-2">1</td>
+                                    <td class="py-2">Player 1 (42)</td>
+                                    <td class="py-2">25.9</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2">2</td>
+                                    <td class="py-2">Player 2 (35)</td>
+                                    <td class="py-2">22.9</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Status Bar -->
+        <div class="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 p-3">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center mb-2 md:mb-0">
+                    <div class="w-4 h-4 bg-yellow-500 rounded-full mr-2"></div>
+                    <span class="text-sm">Round in progress</span>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <span class="hidden md:inline">Players remaining:</span>
+                    <span class="font-bold ml-1 text-yellow-400">5</span>
+                    <span class="mx-2">|</span>
+                    <span>Next rule at:</span>
+                    <span class="font-bold ml-1 text-red-400">2 players</span>
+                </div>
+                <button
+                    class="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded text-sm mt-2 md:mt-0 transition">
+                    <i class="fas fa-skull mr-1"></i> Emergency Release
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulate acid overflow when score reaches -10
+        document.addEventListener('DOMContentLoaded', function () {
+            const acidOverflows = document.querySelectorAll('.acid-overflow');
+
+            // For demo purposes, we'll simulate a player reaching -10
+            setTimeout(() => {
+                acidOverflows[4].classList.add('overflowing');
+
+                // Show game over modal
+                setTimeout(() => {
+                    const modal = document.createElement('div');
+                    modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50';
+                    modal.innerHTML = `
+                        <div class="bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 relative">
+                            <div class="absolute top-4 right-4 text-2xl text-red-500">
+                                <i class="fas fa-skull-crossbones"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-red-500 mb-4">GAME OVER</h2>
+                            <p class="mb-4">Player 5's scale has overflowed!</p>
+                            <p class="text-yellow-400 mb-6">Aqua regia has been poured...</p>
+                            <button onclick="this.parentElement.parentElement.remove()" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded transition">
+                                Acknowledge
+                            </button>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                }, 1000);
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

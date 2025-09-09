@@ -1,27 +1,35 @@
 
+import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Button from './pages/Buttons';
+import KingOfDiamonds from './components/KingOfDiamonds';
+import Login from './components/Login';
+
 function App() {
+  const [gameState, setGameState] = useState('login'); // 'login' or 'playing'
+  const [playerData, setPlayerData] = useState(null);
+
+  const handleJoinGame = (data) => {
+    setPlayerData(data);
+    setGameState('playing');
+  };
+
+  const handleBackToLogin = () => {
+    setGameState('login');
+    setPlayerData(null);
+  };
 
   return (
     <>
       <Navigation />
-      <Button>Click me</Button>
-      <Button primary>Primary Button</Button>
-      <Button href="https://google.com" target="_blank">
-        Go to Google
-      </Button>
-      <Button size="small">Small</Button>
-      <Button size="medium">Medium</Button>
-      <Button size="large">Large</Button>
-      <Button bordered>Bordered</Button>
-      <Button rounded>Rounded</Button>
-      <Button primary rounded>Primary Rounded</Button>
-      <Button primary rounded disabled> dis</Button>
-      <Button primary rounded>Primary Rounded</Button>
-      <Button loading>Loading</Button>
-      <Button primary loading>Primary Loading</Button>
-
+      {gameState === 'login' ? (
+        <Login onJoinGame={handleJoinGame} />
+      ) : (
+        <KingOfDiamonds 
+          playerData={playerData} 
+          onBackToLogin={handleBackToLogin}
+        />
+      )}
     </>
   );
 }
